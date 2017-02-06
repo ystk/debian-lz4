@@ -1,0 +1,46 @@
+From 4aadf4353a8b1488392855313e4caf1973bf2d11 Mon Sep 17 00:00:00 2001
+From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+Date: Wed, 17 Sep 2014 01:38:07 +0900
+Subject: [PATCH] Add support s390x architecture
+
+s390x is 64 bit cpu architecture.
+This adds support of s390x and enable LZ4_ARCH64 in the
+case of s390x.
+
+Signed-off-by: Nobuhiro Iwamatsu <iwamatsu@debian.org>
+---
+ lz4.c   | 3 ++-
+ lz4hc.c | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/lz4.c b/lz4.c
+index 435f1ea..a9afc59 100644
+--- a/lz4.c
++++ b/lz4.c
+@@ -51,7 +51,8 @@
+   || defined(__powerpc64__) || defined(__powerpc64le__) \
+   || defined(__ppc64__) || defined(__ppc64le__) \
+   || defined(__PPC64__) || defined(__PPC64LE__) \
+-  || defined(__ia64) || defined(__itanium__) || defined(_M_IA64) )   /* Detects 64 bits mode */
++  || defined(__ia64) || defined(__itanium__) || defined(_M_IA64) \
++  || defined(__s390x__) )   /* Detects 64 bits mode */
+ #  define LZ4_ARCH64 1
+ #else
+ #  define LZ4_ARCH64 0
+diff --git a/lz4hc.c b/lz4hc.c
+index 441a1d6..34a6173 100644
+--- a/lz4hc.c
++++ b/lz4hc.c
+@@ -58,7 +58,8 @@
+   || defined(__powerpc64__) || defined(__powerpc64le__) \
+   || defined(__ppc64__) || defined(__ppc64le__) \
+   || defined(__PPC64__) || defined(__PPC64LE__) \
+-  || defined(__ia64) || defined(__itanium__) || defined(_M_IA64) )   /* Detects 64 bits mode */
++  || defined(__ia64) || defined(__itanium__) || defined(_M_IA64) \
++  || defined(__s390x__) )   /* Detects 64 bits mode */
+ #  define LZ4_ARCH64 1
+ #else
+ #  define LZ4_ARCH64 0
+-- 
+2.1.0
+

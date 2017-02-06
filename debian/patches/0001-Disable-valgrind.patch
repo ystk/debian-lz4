@@ -1,0 +1,29 @@
+From 9dea28a493f0b5500292f4ab0ef49fba5945ac8d Mon Sep 17 00:00:00 2001
+From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+Date: Wed, 17 Sep 2014 02:15:31 +0900
+Subject: [PATCH] Disable valgrind
+
+Signed-off-by: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+---
+ programs/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/programs/Makefile b/programs/Makefile
+index a04c323..d34642a 100644
+--- a/programs/Makefile
++++ b/programs/Makefile
+@@ -128,9 +128,9 @@ uninstall:
+ 	[ -f $(DESTDIR)$(MANDIR)/lz4cat.1 ] && rm -f $(DESTDIR)$(MANDIR)/lz4cat.1
+ 	@echo lz4 successfully uninstalled
+ 
+-test-native: test-lz4 test-lz4c test-fullbench test-fuzzer test-mem
++test-native: test-lz4 test-lz4c test-fullbench test-fuzzer
+ 
+-test-force32: test-lz4c32 test-fullbench32 test-fuzzer32 test-mem32
++test-force32: test-lz4c32 test-fullbench32 test-fuzzer32
+ 
+ test-all: test-native test-force32
+ 
+-- 
+2.1.0
+

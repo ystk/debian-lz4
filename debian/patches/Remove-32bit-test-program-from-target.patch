@@ -1,0 +1,21 @@
+commit 81f875284aad15f87e6064ffd04207934604dc5a
+Author: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+Date:   Wed Jul 2 15:53:57 2014 +0900
+
+    Remove 32bit test program from target
+
+    Signed-off-by: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+
+diff --git a/programs/Makefile b/programs/Makefile
+index 6ec2788..ee3719f 100644
+--- a/programs/Makefile
++++ b/programs/Makefile
+@@ -67,7 +67,7 @@ endif
+ 
+ default: lz4 lz4c
+ 
+-all: lz4 lz4c lz4c32 fullbench fullbench32 fuzzer fuzzer32 datagen
++all: lz4 lz4c fullbench fuzzer datagen
+ 
+ lz4: $(LZ4DIR)/lz4.c $(LZ4DIR)/lz4hc.c bench.c xxhash.c lz4io.c lz4cli.c
+ 	$(CC)      $(FLAGS) -DDISABLE_LZ4C_LEGACY_OPTIONS $^ -o $@$(EXT)
